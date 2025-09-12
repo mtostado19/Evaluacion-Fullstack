@@ -12,7 +12,12 @@ function App() {
   const dispatch = useDispatch();
 
   const onLogin = () => {
-    dispatch(login())
+    // usuario falso para pruebas
+    const username = {
+      username: "Miguel",
+      password: "1234"
+    }
+    dispatch(login(username))
   }
 
   const onLogout = () => {
@@ -21,9 +26,19 @@ function App() {
 
   return (
     <>
-    <div>
-      <button onClick={onLogin}>Login</button>
-    </div>
+    { !isAuth ? (
+      <div>
+        <button onClick={onLogin}>Login</button>
+      </div>
+
+    ) : (
+      <div>
+        <div>
+          usuario en linea: {user.username}
+        </div>
+        <button onClick={onLogout}>Logout</button>
+      </div>
+    )}
     </>
   )
 }
