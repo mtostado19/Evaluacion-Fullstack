@@ -1,21 +1,23 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
 import UserList from './components/UserList'
+import { getAllUsers } from './services/apiUsers'
+
 
 function App() {
 
   const [search, setSearch] = useState('')
-  const [arr, setArr] = useState([
-    {"id": 1, "nombre": "miguel", "email": "test@gmail.com"},
-    {"id": 2, "nombre": "TEST", "email": "test@hotmail.com"},
-    {"id": 3, "nombre": "miguel angel", "email": "test@yahoo.com"},
-    {"id": 4, "nombre": "miguel copia", "email": "test@outlook.com"},
-    {"id": 5, "nombre": "Testo", "email": "test@icloud.com"},
-    {"id": 6, "nombre": "Testito", "email": "test@test.com"}
-    
-  ])
+  const [arr, setArr] = useState([])
+
+  useEffect(() => {
+    async function load() {
+      const res = await getAllUsers()
+      setArr(res.data)
+    }
+    load()
+  }, [])
 
   return (
     <>

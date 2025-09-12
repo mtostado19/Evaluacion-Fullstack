@@ -14,12 +14,12 @@ const UserList = (props) => {
         if (search === '') return data
 
         const regex = new RegExp('^' + search, 'i')
-        return regex.test(data.nombre)
+        return regex.test(data.username)
       })
         .map((data) => (
           <div key={data.id} className='list-items'>
             <div>
-              {data.nombre}
+              {data.username}
             </div>
             <div>
               {data.email}
