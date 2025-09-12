@@ -1,0 +1,17 @@
+
+.list {
+    padding: 1rem;
+    background-color: #414141;
+}
+
+.list-header {
+    font-size: 2rem;
+    border-bottom: 1px solid black;
+    padding: 1rem;
+    margin-bottom: 1rem;
+}
+
+.list-items, .list-header {
+    display: flex;
+    justify-content: space-between;
+}

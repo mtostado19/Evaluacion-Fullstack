@@ -19,8 +19,11 @@ function App() {
 
   return (
     <>
-      <div>
-        <input type="text" onChange={(e) => setSearch(e.target.value)}/>
+      <div className='search-bar-title'>
+        Buscador
+      </div>
+      <div className='search-bar'>
+        <input id={'id_bar'} type="text" onChange={(e) => setSearch(e.target.value)}/>
       </div>
       <UserList arr={arr} search={search}></UserList>
     </>
