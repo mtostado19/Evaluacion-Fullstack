@@ -37,7 +37,7 @@ R = El "event loop" se refiere al funcionamiento y procesamiento de las peticion
 
 - Explica la diferencia entre require y import en Node.js.
 
-R = "Require" se usa para importar un módulo de forma síncrona, esto significa que bloquea las operaciones hasta terminar de cargar el módulo, además pertenece al sistema CommonJS. Por otra parte import permite que el programa prosiga con su ejecución mientras se termina de obtener el módulo, pertenece al estandar ES6.
+R = "Require" se usa para importar un módulo de con el sistema de modulos CommonJS de forma síncrona. Por otra parte import permite que el programa prosiga con su ejecución mientras se termina de obtener el módulo, pertenece al sistema de modulos ES6. Por lo general import es más usado hoy en dia y permite únicamente importar ciertos modulos al código, en lugar de agarrar todos.
 
 
 ### 1.2 Python
@@ -107,16 +107,16 @@ R = Se mantienen 2 carpetas donde se encuentra todo lo del lado del cliente (Fro
 Frontend
 ```
 - frontend
-  - assets
-  - components
-    - Button
+  - assets/
+  - components/
+    - Button/
       - Button.jsx
       - button.styles.css
-  - hooks
-  - pages
-  - services
-  - routes
-  - utils
+  - hooks/
+  - pages/
+  - services/
+  - routes/
+  - utils/
   - App.jsx
   - main.jsx
   - .env
