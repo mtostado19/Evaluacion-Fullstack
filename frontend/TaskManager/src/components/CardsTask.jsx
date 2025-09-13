@@ -82,6 +82,8 @@ const CardsTasks = (props) => {
                 handleClose={handleClose}
                 handleSubmit={handleUpdate}
                 textTitle="Editar"
+                titulo={titulo}
+                descripcion={descripcion}
             ></ModalTask>
             
         </div>

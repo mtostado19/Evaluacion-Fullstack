@@ -10,7 +10,7 @@ const ModalTask = (props) => {
     const { allTasksList } = useSelector((state) => state.tasks)
     const dispatch = useDispatch()
 
-    const { show, handleClose, handleSubmit, textTitle } = props
+    const { show, handleClose, handleSubmit, textTitle, titulo, descripcion } = props
     const [estado_actual, setEstadoActual] = useState("Pendiente");
 
     return (
@@ -26,6 +26,7 @@ const ModalTask = (props) => {
                             type="text"
                             name="titulo"
                             placeholder="Ingresa el titulo"
+                            defaultValue={titulo}
                             required
                         />
                     </Form.Group>
@@ -35,6 +36,7 @@ const ModalTask = (props) => {
                         <Form.Control
                             type="text"
                             name="descripcion"
+                            defaultValue={descripcion}
                             placeholder="Una breve descripcion..."
                             required
                         />
@@ -44,7 +46,7 @@ const ModalTask = (props) => {
                         <Form.Label>Estado</Form.Label>
                         <Form.Select
                             name="estado"
-                            value={estado_actual}
+                            defaultValue={estado_actual}
                             onChange={(e) => setEstadoActual(e.target.value)}
                             required
                         >
