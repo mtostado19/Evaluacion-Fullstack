@@ -10,8 +10,7 @@ import ModalTask from './ModalTask';
 
 const CardsTasks = (props) => {
 
-    const { allTasksList } = useSelector((state) => state.tasks)
-    const { isAuth, user, token } = useSelector((state) => state.auth)
+    const { user, token } = useSelector((state) => state.auth)
     const dispatch = useDispatch()
 
     const { titulo, descripcion, estado_actual, id } = props
@@ -43,7 +42,6 @@ const CardsTasks = (props) => {
                 estado_actual: e.target.estado.value,
                 usuario: user.id
             }
-            console.log(body)
             const res = await putTask(token, id, body)
             dispatch(updateTaskReducer(res))
             handleClose()

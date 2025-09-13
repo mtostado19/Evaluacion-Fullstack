@@ -3,12 +3,11 @@ import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import Form from 'react-bootstrap/Form';
 import { register } from "../../services/auth/auth"
-import { useDispatch, useSelector } from 'react-redux'
-import { loginReducer, logoutReducer } from "../../features/auth/authSlice"
+import { useDispatch } from 'react-redux'
+import { loginReducer } from "../../features/auth/authSlice"
 import { useNavigate } from "react-router-dom"
 
 function Example() {
-    const { isAuth, user, token } = useSelector((state) => state.auth)
     const dispatch = useDispatch()
     const navigate = useNavigate()
 

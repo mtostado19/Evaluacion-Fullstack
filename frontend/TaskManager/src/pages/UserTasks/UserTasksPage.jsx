@@ -1,7 +1,6 @@
 import { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { loginReducer, logoutReducer } from "../../features/auth/authSlice"
-import { use, useEffect } from 'react'
+import { useEffect } from 'react'
 import { useNavigate } from "react-router-dom"
 import { getUserTasks } from '../../services/tasks/task.api'
 import CreateTask from './CreateTask'
@@ -16,7 +15,6 @@ const UserTasksPage = () => {
     const [filterVal, setFilterVal] = useState("")
 
     const { isAuth, user, token } = useSelector((state) => state.auth)
-    const { allTasksList } = useSelector((state) => state.tasks)
     const dispatch = useDispatch()
     const navigate = useNavigate()
 

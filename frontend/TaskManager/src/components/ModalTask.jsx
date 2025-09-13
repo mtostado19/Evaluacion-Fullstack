@@ -2,13 +2,8 @@ import { useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import Form from 'react-bootstrap/Form';
-import { useDispatch, useSelector } from 'react-redux'
 
 const ModalTask = (props) => {
-
-    const { isAuth, user, token } = useSelector((state) => state.auth)
-    const { allTasksList } = useSelector((state) => state.tasks)
-    const dispatch = useDispatch()
 
     const { show, handleClose, handleSubmit, textTitle, titulo, descripcion } = props
     const [estado_actual, setEstadoActual] = useState("Pendiente");
