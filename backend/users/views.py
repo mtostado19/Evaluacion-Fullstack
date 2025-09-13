@@ -43,4 +43,4 @@ def loginUser(request):
     
     token, created = Token.objects.get_or_create(user=user)
     serializer = UsuarioSerializer(user)
-    return Response({ "user": serializer.data, "token": token.key })
+    return Response({ "user": serializer.data, "token": token.key }, status=status.HTTP_201_CREATED)
