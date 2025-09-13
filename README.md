@@ -74,6 +74,10 @@ python manage.py migrate
 python manage.py runserver
 ```
 
+Cuando termine se debería tener una base de datos con la siguiente estructura:
+
+![image alt](https://github.com/mtostado19/Evaluacion-Fullstack/blob/proyecto/Screenshots/ejemp_miniDiagrama.png?raw=true)
+
 ### Rutas
 
 La mayoria de las operaciones CRUD se pueden realizar desde la aplicación de React, en caso de querer probarlas individualmente en un entorno separado se incluyen las siguientes rutas:
@@ -139,6 +143,9 @@ Headers { Authorization: Token {token_here}}
 
 ejem: Headers { Authorization: Token 121266c80f4c29b106e6083a9df62dc6789cb887}
 ```
+
+Ejemplo visual de como pasar los tokens:
+![image alt](https://github.com/mtostado19/Evaluacion-Fullstack/blob/proyecto/Screenshots/ejem_headers.png?raw=true)
 
 #### OBTENER TODAS LAS TAREAS EN LA BASE DE DATOS
 
@@ -208,6 +215,10 @@ URL = http://127.0.0.1:8000/tasks/{id_usuario}/
 Metodo: DELETE
 Headers { Authorization: Token {token_here}}
 ```
+
+### Estructura carpetas
+Al final el proyecto debería de estar como la siguiente imagen:
+![image alt](https://github.com/mtostado19/Evaluacion-Fullstack/blob/proyecto/Screenshots/ejem_backend.png?raw=true)
 
 ## FRONTEND
 
