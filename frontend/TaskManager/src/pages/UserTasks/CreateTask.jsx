@@ -4,7 +4,9 @@ import Modal from 'react-bootstrap/Modal';
 import Form from 'react-bootstrap/Form';
 import { postTask } from '../../services/tasks/task.api';
 import { useDispatch, useSelector } from 'react-redux'
-import { addTaskReducer } from '../../features/tasks/tasksSlice';
+import { logoutReducer } from '../../features/auth/authSlice';
+import { addTaskReducer, clearTaskReducer } from '../../features/tasks/tasksSlice';
+import './CreateTask.modules.css'
 
 function Example() {
     const { isAuth, user, token } = useSelector((state) => state.auth)
@@ -38,11 +40,26 @@ function Example() {
         handleClose();
     };
 
+    const handleLogout = () => {
+        console.log("isauth", isAuth)
+        dispatch(logoutReducer())
+        dispatch(clearTaskReducer())
+        console.log("isauth", isAuth)
+    }
+
     return (
         <>
+        <div className='btn-crear'>
+
             <Button variant="primary" onClick={handleShow}>
                 Crear Tarea
             </Button>
+
+            <Button variant='danger' onClick={handleLogout}>
+                Logout
+            </Button>
+
+        </div>
 
             <Modal show={show} onHide={handleClose}>
                 <Form onSubmit={handleSubmit}>

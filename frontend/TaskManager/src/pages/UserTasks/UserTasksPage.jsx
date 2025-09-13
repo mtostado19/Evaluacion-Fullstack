@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from 'react-redux'
 import { loginReducer, logoutReducer } from "../../features/auth/authSlice"
-import { useEffect } from 'react'
+import { use, useEffect } from 'react'
 import { useNavigate } from "react-router-dom"
 import { getUserTasks } from '../../services/tasks/task.api'
 import CreateTask from './CreateTask'
@@ -30,8 +30,10 @@ const UserTasksPage = () => {
     }, [])
 
     useEffect(() => {
-        console.log("alltask", allTasksList)
-    }, [allTasksList])
+        if (!isAuth){
+            navigate('/')
+        }
+    }, [isAuth])
 
 
     return(

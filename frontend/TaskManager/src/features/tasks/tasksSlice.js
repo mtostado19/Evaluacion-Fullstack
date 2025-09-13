@@ -30,10 +30,13 @@ export const taskSlice = createSlice({
         },
         deleteTaskReducer: (state, action) => {
             state.allTasksList = state.allTasksList.filter((t) => t.id !== action.payload)
+        },
+        clearTaskReducer: (state) => {
+            state.allTasksList = []
         }
     }
 })
 
-export const { addTaskReducer, updateTaskReducer, deleteTaskReducer } = taskSlice.actions
+export const { addTaskReducer, updateTaskReducer, deleteTaskReducer, clearTaskReducer } = taskSlice.actions
 
 export default taskSlice.reducer
