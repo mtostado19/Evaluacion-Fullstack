@@ -9,10 +9,41 @@ LEER Y SEGUIR LOS PROCESOS EN ESTA SECCIÓN PARA PODER INSTALAR Y CORRER LA APLI
 
 Es importante tener minimo Python y node js instalados
 
+De igual forma se necesita crear una base de datos en PostgreSql con el siguiente nombre:
+```
+dbTask
+```
+Para cualquier modificacion de los atributos de la base de datos, se estan usando los valores por defecto a excepción del usuario y la contraseña, es necesario crear un archivo al nivel de "manage.py" llamada ".env".
+
+En el .env deberan copiar y pegar lo siguiente:
+```
+DB_NAME=dbTask
+DB_USER=postgres
+DB_PASSWORD=mypassword
+```
+
+
+Por si es necesario igual dejo la configuración por defecto que indica la documentación.
+```
+DATABASES = {
+    "default": {
+        "ENGINE": "django.db.backends.postgresql",
+        "NAME": "dbTask",
+        "USER": "mydatabaseuser",  # Usuario de la base de datos
+        "PASSWORD": "mypassword",  # Contraseña del usuario
+        "HOST": "127.0.0.1",
+        "PORT": "5432",
+    }
+}
+```
+
+
+
 Primero comienza configurando el backend.
 1. Crear entorno virtual de python e instalar paquetes necesarios
 
 (!IMPORTANTE en caso de no poder crear el entorno virtual en python puede ser que haya problemas con los permisos, prueba ejecutar estos comandos en caso de algun error, si aún no funciona el entorno virtual se puede instalar directo a la computadora aunque esto no es lo recomendado)
+
 (
   #### Temp
 ```bash
@@ -29,7 +60,7 @@ cd backend
 python -m venv venv
 .\venv\Scripts\activate.ps1
 pip install Django
-pip install django-cors-headers djangorestframework
+pip install django-cors-headers djangorestframework psycopg2
 ```
 
 2. Crear las migraciones del programa
