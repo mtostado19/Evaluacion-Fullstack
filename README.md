@@ -20,25 +20,29 @@ Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
 ```
 )
 
+```bash
 cd backend
 cd Django
 python -m venv venv
 .\venv\Scripts\activate.ps1
 pip install Django
 pip install django-cors-headers djangorestframework
-
+```
 
 2. Crear las migraciones del programa
+```bash
 python manage.py makemigrations
 python manage.py migrate
+```
 
-3. Correr el servidor
+4. Correr el servidor
+```bash
 python manage.py runserver
-
+```
 ### Rutas
 Una vez se esta ejecutando el servidor, tenemos que crear usuarios para la base de datos
 
-
+```
 http://127.0.0.1:8000/usuarios/register/
 Metodo:POST
 {
@@ -55,13 +59,14 @@ response:
     },
     "token": "b2056245448a43bd2f40ddbbda596dbfee0a004c"
 }
-
+```
 Es necesario usar el "token" que se devuelve para acceder al resto de las rutas.
 El token se utiliza dentro de los "Headers":
 Authorization: Token b2056245448a43bd2f40ddbbda596dbfee0a004c
 
 En caso de ya tener un usuario creado, se puede usar la siguiente ruta para recuperar el token asignado al usuario
 
+```
 http://127.0.0.1:8000/usuarios/login/
 Metodo:POST
 {
@@ -78,16 +83,19 @@ response:
     },
     "token": "b2056245448a43bd2f40ddbbda596dbfee0a004c"
 }
-
+```
 
 ### productos
 
 - Conseguir todos los productos
+```
 http://127.0.0.1:8000/
 Metodo:GET
-
+headers { Authorization: Token {token_here}}
+```
 
 - Ingresar un producto
+```
 Metodo:POST
 {
     "nombre": "libro",
@@ -103,9 +111,10 @@ response:
     "descripcion": "es un libro",
     "precio": "20.50"
 }
-
+```
 
 - Actualizar un producto
+```
 http://127.0.0.1:8000/producto/{id}/
 Metodo:PUT
 {
@@ -122,12 +131,14 @@ response:
     "descripcion": "es un libro actualizado",
     "precio": "20.50"
 }
-
+```
 
 - Borrar un producto
+```
 http://127.0.0.1:8000/producto/{id}/
 Metodo: DELETE
 headers { Authorization: Token {token_here}}
+```
 
 ## Frontend
 
@@ -136,17 +147,23 @@ Para configurar el frontend solo es necesario seguir estos comandos
 ### React
 1. Nos colocamos en la carpeta ejercicio1
 
+```bash
 cd .\frontend\React\ejercicio1\
+```
 
 2. instalamos dependencias
+```bash
 npm i
+```
 
 3. Corremos la app
+```bash
 npm run dev
-
+```
 
 4. Para poder ver el funcionamiento correcto del programa, es necesario tener corriendo de igual forma el backend en DJANGO (vease las instrucciones anteriores). Dejo formatos para usuarios en caso de querer usarlos para correr el programa
 
+```
 {
     "username": "miguel",
     "email": "test@hotmail.com",
@@ -176,18 +193,25 @@ npm run dev
     "email": "gabriel@gmail.com",
     "password": "1234"
 }
+```
+
 
 ### Redux
 1. Nos colocamos en la carpeta ejercicio1
 
+```bash
 cd .\frontend\Redux\ejercicioRedux\
+```
 
 2. instalamos dependencias
+```bash
 npm i
+```
 
 3. Corremos la app
+```bash
 npm run dev
-
+```
 
 # Ejercicios Practicos
 
