@@ -9,12 +9,15 @@ export const taskSlice = createSlice({
     initialState,
     reducers: {
         addTaskReducer: (state, action) => {
-            state.allTasksList.push({
-                id: action.payload.id,
-                titulo: action.payload.titulo,
-                descripcion: action.payload.descripcion,
-                estado_actual: action.payload.estado_actual
-            })
+            const exists = state.allTasksList.find(task => task.id === action.payload.id)
+            if (!exists) {
+                state.allTasksList.push({
+                    id: action.payload.id,
+                    titulo: action.payload.titulo,
+                    descripcion: action.payload.descripcion,
+                    estado_actual: action.payload.estado_actual
+                })
+            }
         },
         updateTaskReducer: (state, action) => {
             const { id, titulo, descripcion, estado_actual } = action.payload

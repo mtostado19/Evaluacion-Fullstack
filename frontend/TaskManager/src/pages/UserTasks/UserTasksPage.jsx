@@ -4,11 +4,13 @@ import { useEffect } from 'react'
 import { useNavigate } from "react-router-dom"
 import { getUserTasks } from '../../services/tasks/task.api'
 import CreateTask from './CreateTask'
-
+import { addTaskReducer } from '../../features/tasks/tasksSlice'
+import UserTasksCardList from './UserTasksCardList'
 
 const UserTasksPage = () => {
 
     const { isAuth, user, token } = useSelector((state) => state.auth)
+    const { allTasksList } = useSelector((state) => state.tasks)
     const dispatch = useDispatch()
     const navigate = useNavigate()
 
@@ -19,16 +21,30 @@ const UserTasksPage = () => {
         async function load() {
             console.log("load")
             const res = await getUserTasks(token, user.id)
-            console.log(res)
+            res.forEach(element => {
+                dispatch(addTaskReducer(element))
+            });
+
         }
         load()
     }, [])
+
+    useEffect(() => {
+        console.log("alltask", allTasksList)
+    }, [allTasksList])
 
 
     return(
         <div>
             <CreateTask></CreateTask>
-            user stuff here
+            {/* <div>
+                {allTasksList.map((item) => (
+                    <div key={item.id}>
+                        titulo {item.titulo}
+                    </div>
+                ))}
+            </div> */}
+            <UserTasksCardList></UserTasksCardList>
         </div>
     )
 }

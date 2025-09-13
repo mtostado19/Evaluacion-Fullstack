@@ -32,7 +32,7 @@ function Example() {
         const res = await postTask(token, data)
         console.log("res here", res)
         if (res.data !== null) {
-            dispatch(addTaskReducer(res))
+            dispatch(addTaskReducer(data))
         }
 
         handleClose();

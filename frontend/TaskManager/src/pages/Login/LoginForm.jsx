@@ -4,6 +4,7 @@ import { login } from "../../services/auth/auth"
 import { useDispatch, useSelector } from 'react-redux'
 import { loginReducer, logoutReducer } from "../../features/auth/authSlice"
 import { useNavigate } from "react-router-dom"
+import './LoginForm.modules.css'
 
 const LoginForm = () => {
 
@@ -24,20 +25,25 @@ const LoginForm = () => {
     }
 
     return(
-        <div>
-            <div>
-                Username
+        <div className="form-login">
+            <div className="form-login-fields">
+                <div className="form-login-labels">
+                    Username
+                </div>
                 <div>
                     <input id='inputUsername' type="text" onChange={(e) => setUsername(e.target.value)}/>
                 </div>
             </div>
             <div>
-                Password
+                <div className="form-login-labels">
+                    Password
+
+                </div>
                 <div>
                     <input id='inputPassword' type="password" onChange={(e) => setPassword(e.target.value)}/>
                 </div>
             </div>
-            <div>
+            <div className="form-btn-login">
                 <Button onClick={handleLogin} text={'Login'}></Button>
             </div>
         </div>
