@@ -6,6 +6,8 @@ import App from './App.jsx'
 import UserTasksPage from './pages/UserTasks/UserTasksPage.jsx'
 import { store } from './app/store.js'
 import { Provider } from 'react-redux'
+import 'bootstrap/dist/css/bootstrap.min.css'
+import 'bootstrap/dist/js/bootstrap.bundle'
 
 
 function AppRouter() {
