@@ -17,7 +17,7 @@ export async function postTask(token, body) {
 }
 
 export async function putTask(token, id, body) {
-    const res = await axios.put(`${API_URL}${id}`, body, {
+    const res = await axios.put(`${API_URL}${id}/`, body, {
         headers: { Authorization: `Token ${token}`}
     })
     return res.data

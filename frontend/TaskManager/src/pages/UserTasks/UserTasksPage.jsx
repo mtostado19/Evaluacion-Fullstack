@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { loginReducer, logoutReducer } from "../../features/auth/authSlice"
 import { use, useEffect } from 'react'
@@ -19,7 +20,7 @@ const UserTasksPage = () => {
             navigate('/')
         }
         async function load() {
-            console.log("load")
+            if (!user) return
             const res = await getUserTasks(token, user.id)
             res.forEach(element => {
                 dispatch(addTaskReducer(element))
@@ -39,13 +40,6 @@ const UserTasksPage = () => {
     return(
         <div>
             <CreateTask></CreateTask>
-            {/* <div>
-                {allTasksList.map((item) => (
-                    <div key={item.id}>
-                        titulo {item.titulo}
-                    </div>
-                ))}
-            </div> */}
             <UserTasksCardList></UserTasksCardList>
         </div>
     )
