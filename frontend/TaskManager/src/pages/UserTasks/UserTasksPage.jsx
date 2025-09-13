@@ -51,7 +51,7 @@ const UserTasksPage = () => {
         <div>
             <CreateTask></CreateTask>
             <div>
-                <Form.Select aria-label="Default select example" onChange={handleFilter}>
+                <Form.Select aria-label="Default select example" style={{width: "20rem", marginBottom:"2rem"}} onChange={handleFilter}>
                     <option value="">Todas</option>
                     <option value="Pendiente">Pendiente</option>
                     <option value="EnProgreso">En Progreso</option>
