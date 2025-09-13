@@ -9,6 +9,8 @@ from .serializers import TaskSerializer
 
 # Create your views here.
 @api_view(['GET', 'POST'])
+@authentication_classes([TokenAuthentication])
+@permission_classes([IsAuthenticated])
 def allTask(request):
 
     if request.method == 'GET':
@@ -25,6 +27,8 @@ def allTask(request):
     
 
 @api_view(['GET', 'PUT', 'DELETE'])
+@authentication_classes([TokenAuthentication])
+@permission_classes([IsAuthenticated])
 def singleTask(request, id):
     task = get_object_or_404(Tasks, pk=id)
 
