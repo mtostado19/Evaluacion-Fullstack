@@ -1,7 +1,5 @@
 import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
-import Modal from 'react-bootstrap/Modal';
-import Form from 'react-bootstrap/Form';
 import { useState } from 'react';
 
 import { useDispatch, useSelector } from 'react-redux'
@@ -64,8 +62,10 @@ const CardsTasks = (props) => {
                 style={{ width: '18rem' }}
                 className="mb-2"
             >
-                <Card.Header>
-                    {estado_actual}
+                <Card.Header className='cardTask-title' style={{ display:'flex', justifyContent:'space-between'}}>
+                    <div style={{ fontSize: "1.4rem"}}>
+                        {estado_actual}
+                    </div>
                     <Button variant='primary' onClick={handleDelete}>X</Button>
                 </Card.Header>
                 <Card.Body>

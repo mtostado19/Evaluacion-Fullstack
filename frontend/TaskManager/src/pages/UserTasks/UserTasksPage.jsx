@@ -7,8 +7,13 @@ import { getUserTasks } from '../../services/tasks/task.api'
 import CreateTask from './CreateTask'
 import { addTaskReducer } from '../../features/tasks/tasksSlice'
 import UserTasksCardList from './UserTasksCardList'
+import Form from 'react-bootstrap/Form';
+
 
 const UserTasksPage = () => {
+
+
+    const [filterVal, setFilterVal] = useState("")
 
     const { isAuth, user, token } = useSelector((state) => state.auth)
     const { allTasksList } = useSelector((state) => state.tasks)
@@ -31,16 +36,29 @@ const UserTasksPage = () => {
     }, [])
 
     useEffect(() => {
-        if (!isAuth){
+        if (!isAuth) {
             navigate('/')
         }
     }, [isAuth])
 
+    const handleFilter = (e) => {
+        setFilterVal(e.target.value)
+        console.log("oh", filterVal)
+    }
 
-    return(
+
+    return (
         <div>
             <CreateTask></CreateTask>
-            <UserTasksCardList></UserTasksCardList>
+            <div>
+                <Form.Select aria-label="Default select example" onChange={handleFilter}>
+                    <option value="">Todas</option>
+                    <option value="Pendiente">Pendiente</option>
+                    <option value="EnProgreso">En Progreso</option>
+                    <option value="Completada">Completada</option>
+                </Form.Select>
+            </div>
+            <UserTasksCardList filter={filterVal}></UserTasksCardList>
         </div>
     )
 }

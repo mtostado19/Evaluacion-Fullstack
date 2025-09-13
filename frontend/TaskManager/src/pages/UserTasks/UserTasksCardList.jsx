@@ -7,17 +7,28 @@ function UserTasksCardList(props) {
 
     const { allTasksList } = useSelector((state) => state.tasks)
 
-    const [estado, setEstado] = useState('')
-    const [titulo, setTitulo] = useState('')
-    const [descripcion, setDescripcion] = useState('')
+    const { filter } = props
 
-    console.log("INSIDE LIST", allTasksList)
+    const [visibleTask, setVisibleTask] = useState(allTasksList)
+
+    const updateList = () => {
+        if (filter == '') {
+            setVisibleTask(allTasksList)
+        } else {
+            setVisibleTask(allTasksList.filter((item) => item.estado_actual == filter))
+        }
+    }
+
+    useEffect(() => {
+        updateList()
+    }, [filter, allTasksList])
+    
 
     return (
         <>
         <div className="d-flex flex-wrap gap-3">
 
-            {allTasksList.map((item) => (
+            {visibleTask.map((item) => (
                 <CardsTasks key={item.id}
                 titulo={item.titulo}
                 descripcion={item.descripcion}
