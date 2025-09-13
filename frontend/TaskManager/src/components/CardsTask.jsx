@@ -3,11 +3,16 @@ import Card from 'react-bootstrap/Card';
 const CardsTasks = (props) => {
 
     const { titulo, descripcion, estado_actual } = props
+    const colorEstado= {
+        Pendiente: "Info",
+        EnProgreso: "Danger",
+        Completada: "Success"
+    }
     return (
         <Card
-            bg={"Primary".toLowerCase()}
-            key={"Primary"}
-            text={"Primary".toLowerCase() === 'light' ? 'dark' : 'white'}
+            bg={colorEstado[estado_actual].toLowerCase()}
+            key={colorEstado[estado_actual]}
+            text={colorEstado[estado_actual].toLowerCase() === 'light' ? 'dark' : 'white'}
             style={{ width: '18rem' }}
             className="mb-2"
         >

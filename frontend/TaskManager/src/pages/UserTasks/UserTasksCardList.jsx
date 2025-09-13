@@ -15,7 +15,7 @@ function UserTasksCardList(props) {
     return (
         <>
             {allTasksList.map((item) => (
-                <CardsTasks 
+                <CardsTasks key={item.id}
                     titulo={item.titulo}
                     descripcion={item.descripcion}
                     estado_actual={item.estado_actual}
