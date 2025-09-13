@@ -22,6 +22,7 @@ function UserTasksCardList(props) {
                 titulo={item.titulo}
                 descripcion={item.descripcion}
                 estado_actual={item.estado_actual}
+                id={item.id}
                 ></CardsTasks>
             ))}
         </div>
